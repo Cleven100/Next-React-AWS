@@ -1,0 +1,70 @@
+
+
+
+
+.menu {
+    background-color: $background-grey-dark;
+    border-radius: 0;
+    
+    
+    .ui.grid {
+      margin: 10px;
+      
+    }
+  
+    &__left,
+    &__right {
+      
+      padding: 15px 0px 0px !important;
+      margin: 5px !important;
+     
+      
+      
+      display: flex !important;
+      align-items: center;
+  
+      .ui.menu {
+        border: 0;
+        box-shadow: none;
+        height: 100%;
+        background: $background-light;
+        
+  
+        .icon {
+          margin-right: 10px !important;
+          font-size: 25px;
+          color: #1e90ff;
+          
+        }
+  
+        .item {
+          color: $font-dark !important;
+          border-radius: 5px !important;
+          transition: all 0.4s;
+          
+          &:hover {
+            transition: all 0.4s;
+            color: $font-light;
+            background-color: $primary;
+            border-radius: 5px !important;
+            .icon{               
+                    color: $font-light;                 
+            }
+            &:before {
+                color: $font-light;
+              background-color: $primary;
+            }
+          }
+  
+          &.m-0 i {
+            margin: 0 !important;
+          }
+        }
+      }
+    }
+  
+    &__right {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }

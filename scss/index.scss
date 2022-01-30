@@ -1,0 +1,11 @@
+@import "./colors.scss";
+// Design de layout
+@import "../layouts/LayoutBasico/LayoutBasico.scss";
+
+// Components
+
+@import "../components/Header/Header.scss";
+@import "../components/Header/TopBar/TopBar.scss";
+@import "../components/Header/MenuSite/ManuSite.scss";
+@import "../components/Modal/ModalBasico/ModalBasico.scss"
+

@@ -1,0 +1,23 @@
+.layout-basico {
+    min-height: 100vh;
+    background-image: url("https://produtos-ecommerce.s3.sa-east-1.amazonaws.com/static/abstract-5035778.jpg");
+    background-size: cover;
+    background-position: center;
+    .content{
+         padding:15px;
+         margin: 25px;
+        background-color:  $border-grey-light;
+        border-radius: 5px;
+       height: calc(100vh - 130px);
+       box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        overflow: scroll;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    
+    
+}
