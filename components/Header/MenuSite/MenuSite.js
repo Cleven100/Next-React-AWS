@@ -2,8 +2,18 @@ import { useState } from "react";
 import { Container, Menu, Grid, Icon, Label} from "semantic-ui-react";
 import Link from "next/link";
 import ModalBasico from "../../Modal/ModalBasico/ModalBasico";
+import Auth from "../../Auth";
 
 export default function MenuSite(){
+    
+   const [showModal, setShowModal] = useState(false);
+   const [titleModal, setTitleModal] =useState("Inciar sessão");
+ 
+   const onShowModal = () => setShowModal(true);
+   const onCloseModal = () => setShowModal(false);
+
+
+
     return (
         <div className="fundo">
               <Container>
@@ -12,12 +22,12 @@ export default function MenuSite(){
                         <MenuPlatforms />
                     </Grid.Column>
                     <Grid.Column className="menu__right" width={10}>
-                        <MenuOptions />
+                        <MenuOptions onShowModal={onShowModal}/>
                     </Grid.Column>
                 </Grid>
               </Container>
-              <ModalBasico >
-                  <h2>Conteúdo do modal</h2>
+              <ModalBasico show={showModal} setShow={setShowModal} title={titleModal} size="small">
+                  <Auth onCloseModal={onCloseModal} setTitleModal={setTitleModal}/>
               </ModalBasico>
                
             
@@ -59,10 +69,11 @@ function MenuPlatforms() {
 }
 
 
-function MenuOptions(){
+function MenuOptions(props){
+    const {onShowModal} = props;
      return(
         <Menu>
-            <Menu.Item>
+            <Menu.Item onClick={onShowModal}>
                <Icon name="user outline" />
                Minha conta
             </Menu.Item>
