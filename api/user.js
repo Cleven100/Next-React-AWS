@@ -1,9 +1,10 @@
-import { BASE_PATH } from "../Utils/constants"
+import { BASE_PATH } from "../utils/constants";
 
 
-export async function registerApi(formData) {
+
+export async function registerApi(formData){
     try {
-        const url = `${BASE_PATH}/auth/local/register`
+        const url = `${BASE_PATH}/auth/local/register`;
         const params = {
             method: "POST",
             headers: {
