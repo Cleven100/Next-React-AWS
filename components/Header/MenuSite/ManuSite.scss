@@ -1,11 +1,15 @@
 
+.fundo{
 
+  background: rgb(0,185,255);
+background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,1) 0%);
+  padding: 30px;
+}
 
 
 .menu {
-    background-color: $background-grey-dark;
-    border-radius: 0;
     
+    border-radius: 0;
     
     .ui.grid {
       margin: 10px;
@@ -15,7 +19,7 @@
     &__left,
     &__right {
       
-      padding: 15px 0px 0px !important;
+      padding: 10px 0px 0px !important;
       margin: 5px !important;
      
       
@@ -28,17 +32,18 @@
         box-shadow: none;
         height: 100%;
         background: $background-light;
+        color: #0c0c0b !important;
         
   
         .icon {
           margin-right: 10px !important;
           font-size: 25px;
-          color: #1e90ff;
+          color: #0e0bc8;
           
         }
   
         .item {
-          color: $font-dark !important;
+          color: #0c0c0b !important;
           border-radius: 5px !important;
           transition: all 0.4s;
           

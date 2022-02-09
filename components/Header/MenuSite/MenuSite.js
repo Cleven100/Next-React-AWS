@@ -3,11 +3,14 @@ import { Container, Menu, Grid, Icon, Label} from "semantic-ui-react";
 import Link from "next/link";
 import ModalBasico from "../../Modal/ModalBasico/ModalBasico";
 import Auth from "../../Auth";
+import TopBar from "../TopBar";
+import useAuth from "../../../hooks/useAuth";
 
 export default function MenuSite(){
     
    const [showModal, setShowModal] = useState(false);
    const [titleModal, setTitleModal] =useState("Inciar sessão");
+   const { auth, logout } = useAuth();
  
    const onShowModal = () => setShowModal(true);
    const onCloseModal = () => setShowModal(false);
@@ -16,16 +19,21 @@ export default function MenuSite(){
 
     return (
         <div className="fundo">
-              <Container>
+              
                    <Grid>
-                    <Grid.Column className="menu__left" width={5}>
+                       
+                    <Grid.Column className="menu__left" width={11}>
+                        <TopBar/>
                         <MenuPlatforms />
+                        
                     </Grid.Column>
-                    <Grid.Column className="menu__right" width={10}>
-                        <MenuOptions onShowModal={onShowModal}/>
+                    <Grid.Column className="menu__right" width={3}>
+                        
+                        {auth ? <button onClick={logout}>Sair</button> : <MenuOptions onShowModal={onShowModal}/>}
+                        
                     </Grid.Column>
                 </Grid>
-              </Container>
+              
               <ModalBasico show={showModal} setShow={setShowModal} title={titleModal} size="small">
                   <Auth onCloseModal={onCloseModal} setTitleModal={setTitleModal}/>
               </ModalBasico>
@@ -80,3 +88,5 @@ function MenuOptions(props){
          </Menu> 
      )
 }
+
+

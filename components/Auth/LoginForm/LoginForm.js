@@ -3,17 +3,45 @@ import { Form, Button} from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
+import useAuth from "../../../hooks/useAuth";
+import { loginApi, resetPasswordApi } from "../../../api/user";
 
 export default function LoginForm(props){
-    const {showRegisterForm} = props;
+    const {showRegisterForm, onCloseModal} = props;
+    const [loading, setLoading] = useState(false);
+    const { login} = useAuth();
+   
+    
 
     const formik = useFormik({
        initialValues: initialValues(),
        validationSchema: Yup.object(validationSchema()),
-       onSubmit: (formData) => {
-           console.log(formData);
+       onSubmit: async (formData) => {
+           setLoading(true);
+           const response = await loginApi(formData);
+           if(response?.jwt){
+               login(response.jwt)
+               onCloseModal();
+           } else {
+               toast.error("O email ou a senha está incorreto");
+           }
+           setLoading(false);
        }
-    })
+    });
+
+    const resetPassword = () => {
+     formik.setErrors({});
+     const validateEmail = Yup.string().email().required();
+
+     if(!validateEmail.isValidSync(formik.values.identifier)){
+        formik.setErrors({ identifier: true })
+     } else {
+         resetPasswordApi(formik.values.identifier);
+     }
+
+     console.log(formik.values.identifier);
+
+    }
 
   return(
       <Form className="login-form" onSubmit={formik.handleSubmit}>
@@ -37,17 +65,18 @@ export default function LoginForm(props){
            <div className="actions">
               
               <div>
-                  <Button className="submit" type="submit">
+                  <Button className="submit" type="submit" loading={loading}>
                       Logar
                   </Button>
-                  <Button type="button">
-                      Esqueceu a senha?
+                  <Button type="button" basic onClick={showRegisterForm}>
+                  Cadastrar
                   </Button>
+                  
               </div>
 
-              <Button type="button" basic onClick={showRegisterForm}>
-                  Cadastrar
-              </Button>
+                  <Button type="button" onClick={resetPassword}>
+                      Esqueceu a senha?
+                  </Button>
 
            </div>
       </Form>
