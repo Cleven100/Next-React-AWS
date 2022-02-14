@@ -1,5 +1,15 @@
 .account {
-    h1 {
-        color: red;
-    }
+   
+        .title {
+            width: max-content;
+            background-color: black;
+            color: rgb(193, 193, 199);
+            padding: 5px 10px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .data {
+            background-color: rgb(159, 155, 182);
+            box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.1)
+        }
 }
