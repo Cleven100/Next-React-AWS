@@ -1,4 +1,5 @@
 import React from 'react'
+
 import LayoutBasico from "../layouts/LayoutBasico"
 
 export default function Account(){

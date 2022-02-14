@@ -2,7 +2,7 @@ import LayoutBasico from "../layouts/LayoutBasico"
 
 export default function Home() {
   return (
-    <LayoutBasico>
+    <LayoutBasico className="home">
       <h1>Home</h1>
     </LayoutBasico>
   )
