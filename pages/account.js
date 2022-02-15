@@ -28,7 +28,7 @@ export default function Account(){
 
      return(
          <LayoutBasico className="account">
-             <Configuracao user={user}/>
+             <Configuracao user={user} logout={logout}/>
          </LayoutBasico>
      )
 
@@ -37,12 +37,12 @@ export default function Account(){
 
 
 function Configuracao(props) {
-    const { user } = props;
+    const { user, logout } = props;
     return (
         <div className="account_configuration">
         <div className="title">Configuração</div>
       <div className="data">
-       <ChangeNameForm user={user}/>
+       <ChangeNameForm user={user} logout={logout}/>
       </div>
    </div>
 
