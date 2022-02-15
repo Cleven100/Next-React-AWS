@@ -100,30 +100,37 @@ function MenuOptions(props){
                 <>
                  
                  <Link href="/cart">
-                     <Menu.Item as="a" >
+                     <Menu.Item as="a" className="carrinho" >
                         <Icon name="cart" />
                      
                  </Menu.Item>
                  </Link>
                 <Link href="/orders">
 
-                     <Menu.Item as="a">
+                     <Menu.Item as="a"  className="orders">
                      <Icon name="desktop" />
                      Meus pedidos
                 </Menu.Item>
                 </Link>
 
                 <Link href="/wishlist">
-                     <Menu.Item as="a">
+                     <Menu.Item as="a"  className="wishlist">
                      <Icon name="heart outline" />
                      Favoritos
                 </Menu.Item>
                 </Link>
 
                 <Link href="/account">
-                     <Menu.Item as="a">
+                     <Menu.Item as="a"  className="account">
                      <Icon name="user outline" />
-                      {user.name}
+                      
+                </Menu.Item>
+                </Link>
+
+                <Link href="/account">
+                     <Menu.Item as="a"  className="home">
+                     <Icon name="home" />
+                      
                 </Menu.Item>
                 </Link>
 

@@ -30,7 +30,7 @@ export default function ChangeNameForm(props){
 
     return (
         <div className="change-name-form">
-            <h4>Modifique seu nome e seu apelido</h4>
+            <h4>Modifique seu nome e sobrenome</h4>
             <Form onSubmit={formik.handleSubmit}>
                 <Form.Group widths="equal">
                 <Form.Input  name="name" 
@@ -40,7 +40,7 @@ export default function ChangeNameForm(props){
                      error={formik.errors.name}
                     />
                     <Form.Input  name="lastname" 
-                     placeholder="Seu novo Apelido"
+                     placeholder="Seu novo sobrenome"
                      onChange={formik.handleChange}
                      value={formik.values.lastname}
                      error={formik.errors.lastname}
