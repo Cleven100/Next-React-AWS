@@ -7,7 +7,7 @@ import ChangeNameForm from '../components/Account/ChangeNameForm';
 
 export default function Account(){
       const [user, setUser] = useState(undefined);
-      const { auth, logout } = useAuth();
+      const { auth, logout, setReloadUser } = useAuth();
       const router = useRouter();
 
       useEffect(() => {
@@ -28,7 +28,7 @@ export default function Account(){
 
      return(
          <LayoutBasico className="account">
-             <Configuracao user={user} logout={logout}/>
+             <Configuracao user={user} logout={logout} setReloadUser={setReloadUser}/>
          </LayoutBasico>
      )
 
@@ -37,12 +37,12 @@ export default function Account(){
 
 
 function Configuracao(props) {
-    const { user, logout } = props;
+    const { user, logout, setReloadUser } = props;
     return (
         <div className="account_configuration">
         <div className="title">Configuração</div>
       <div className="data">
-       <ChangeNameForm user={user} logout={logout}/>
+       <ChangeNameForm user={user} logout={logout} setReloadUser={setReloadUser}/>
       </div>
    </div>
 

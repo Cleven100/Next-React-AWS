@@ -19,7 +19,8 @@ export default function ChangeNameForm(props){
            if(!response){
                toast.error("Erro ao atualizar seu nome ou seu sobre nome: ");
            } else {
-               console.log("nome atulizado");
+               setReloadUser(true);
+               toast.success("Nome e sobrenome atualizados!");
            }
            setLoading(false);
        }
