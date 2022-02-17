@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
+import { updateEmailApi } from "../../../api/user";
 
 
 export default function ChangeEmailForm(props){
     const { user, logout, setReloadUser} = props;
+    const [loading, setLoading ] = useState(false);
 
     const formik = useFormik({
       initialValues: initialValues(),
       validationSchema: Yup.object(validationSchema()),
-      onSubmit: (formData) => {
-        console.log(formData);
+      onSubmit: async (formData) => {
+        setLoading(true);
+
+       const response = await updateEmailApi(user.id, formData.email, logout);
+       if(!response || response?.statusCode === 400){
+         toast.error("Erro ao atualizar o email");
+       }else {
+         setReloadUser(true);
+         toast.success("Email Atualizado");
+         formik.handleReset();
+       }
+
+        setLoading(false);
       }
     });
 
@@ -37,7 +50,7 @@ export default function ChangeEmailForm(props){
                    value={formik.values.repeatEmail}
                    error={formik.errors.repeatEmail}
                  />
-                 <Button className="submit">
+                 <Button className="submit" loading={loading}>
                   Atualizar
               </Button>
              </Form.Group>
