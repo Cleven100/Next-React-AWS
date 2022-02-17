@@ -112,3 +112,22 @@ export async function updateEmailApi(idUser, email, logout){
         return null;
     }
 }
+
+
+export async function updatePasswordApi(idUser, password, logout){
+    try {
+      const url = `${BASE_PATH}/users/${idUser}`;
+      const params = {
+          method: "PUT",
+          headers: {
+              "Content-type": "application/json"
+          },
+          body: JSON.stringify({ password }),
+      };
+      const result = await authFetch(url, params, logout);
+      return result ? result : null;
+    } catch(error){
+        console.log(error);
+        return null;
+    }
+}
