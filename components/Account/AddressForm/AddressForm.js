@@ -1,15 +1,27 @@
 import React from 'react';
 import { Form, Button } from "semantic-ui-react";
+import { useFormik } from 'formik';
+import * as Yup from "yup";
 
 export default function AddressForm(){
+    const formik = useFormik({ 
+        initialValues: initialValues(),
+        validationSchema: Yup.object(validationSchema()),
+        onSubmit: (formData) => {
+            console.log(formData)
+        },
+     });
    
     return(
-        <Form>
+        <Form onSubmit={formik.handleSubmit}>
             <Form.Input
               name="title"
               type="text"
               label="Logradouro"
               placeholder="Logradouro"
+              onChange={formik.handleChange}
+              value={formik.values.title}
+              error={formik.errors.title}
 
              /> 
               <Form.Group widths="equal">
@@ -18,12 +30,18 @@ export default function AddressForm(){
                     type="text"
                     label="Nome"
                     placeholder="Nome"
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
+                    error={formik.errors.name}
                    />
                   <Form.Input
                     name="address"
                     type="text"
                     label="Endereço"
                     placeholder="Endereço"
+                    onChange={formik.handleChange}
+                    value={formik.values.address}
+                    error={formik.errors.address}
 
                     />
 
@@ -32,6 +50,9 @@ export default function AddressForm(){
                     type="text"
                     label="CEP"
                     placeholder="CEP"
+                    onChange={formik.handleChange}
+                    value={formik.values.cep}
+                    error={formik.errors.cep}
                    />
 
               </Form.Group>
@@ -40,16 +61,22 @@ export default function AddressForm(){
                <Form.Group widths="equal"  >
 
                   <Form.Input
-                    name="name"
+                    name="cidade"
                     type="text"
-                    label="Cidade"
+                    label="cidade"
                     placeholder="Cidade"
+                    onChange={formik.handleChange}
+                    value={formik.values.cidade}
+                    error={formik.errors.cidade}
                        />
                    <Form.Input
-                    name="address"
+                    name="estado"
                     type="text"
                     label="Estado"
                     placeholder="Estado"
+                    onChange={formik.handleChange}
+                    value={formik.values.estado}
+                    error={formik.errors.estado}
 
                      />
                       <Form.Input
@@ -57,6 +84,9 @@ export default function AddressForm(){
                     type="text"
                     label="Complemento"
                     placeholder="Complemento"
+                    onChange={formik.handleChange}
+                    value={formik.values.complemento}
+                    error={formik.errors.complemento}
 
                      />
 
@@ -74,5 +104,33 @@ export default function AddressForm(){
         </Form>
     )
 
+
+}
+
+
+function initialValues(){
+    return {
+        title: "",
+        name: "",
+        address: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        complemento: "",
+    }
+}
+
+
+function validationSchema() {
+
+   return {
+       title: Yup.string().required(true),
+       name: Yup.string().required(true),
+       address: Yup.string().required(true),
+       cep: Yup.string().required(true),
+       cidade: Yup.string().required(true),
+       estado: Yup.string().required(true),
+       complemento: Yup.string().required(true),
+   }
 
 }
