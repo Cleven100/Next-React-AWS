@@ -18,3 +18,16 @@ export async function createAddressApi(address, logout){
       return null;
   }
 }
+
+
+export async function getAddressesApi(idUser, logout) {
+    try {
+      const url = `${BASE_PATH}/addresses?user=${idUser}`;
+      const result = await authFetch(url, null, logout);
+      if (result.statusCode === 500) throw "Error del servidor";
+      return result;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }

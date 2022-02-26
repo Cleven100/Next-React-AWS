@@ -9,6 +9,7 @@ import ChangeEmailForm from "../components/Account/ChangeEmailForm";
 import ChangePasswordForm from '../components/Account/ChangePasswordForm';
 import ModalBasico from '../components/Modal/ModalBasico/ModalBasico';
 import AddressForm from "../components/Account/AddressForm";
+import ListAddress from '../components/Account/ListAddress/ListAddress';
 
 export default function Account(){
       const [user, setUser] = useState(undefined);
@@ -88,7 +89,7 @@ function Addresses(){
                   <Icon  name="plus" link onClick={() => openModal("Novo endereço")} /> 
                </div>
                <div className="data"> 
-                     <p>Lista de endereços</p>
+                     <ListAddress />
                </div> 
                <ModalBasico show={showModal} setShow={setShowModal} title={titleModal}>
                     {formModal}
