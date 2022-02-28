@@ -90,7 +90,7 @@ function Addresses(){
                   <Icon  name="plus" link onClick={() => openModal("Novo endereço")} /> 
                </div>
                <div className="data"> 
-                     <ListAddress reloadAddresses={reloadAddresses}  setReloadAddresses={setReloadAddresses} />
+                     <ListAddress reloadAddresses={reloadAddresses}  setReloadAddresses={setReloadAddresses} openModal={openModal} />
                </div> 
                <ModalBasico show={showModal} setShow={setShowModal} title={titleModal}>
                     {formModal}
