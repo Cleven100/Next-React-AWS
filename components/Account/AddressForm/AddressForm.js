@@ -8,15 +8,16 @@ import { toast } from 'react-toastify';
 
 
 export default function AddressForm(props){
-    const { setShowModal, setReloadAddresses } = props;
+    const { setShowModal, setReloadAddresses, newAddress, address } = props;
     const [loading, setLoading] = useState(false);
     const { auth, logout } = useAuth();
 
     const formik = useFormik({ 
-        initialValues: initialValues(),
+        initialValues: initialValues(address),
         validationSchema: Yup.object(validationSchema()),
         onSubmit: (formData) => {
-            createAddress(formData);
+            
+            newAddress ? createAddress(formData) : uodateAddress();
             
         },
      });
@@ -41,14 +42,19 @@ export default function AddressForm(props){
 
       setLoading(false);
      }
+
+     const updateAddress = (formData) => {
+
+
+     }
    
     return(
         <Form onSubmit={formik.handleSubmit}>
             <Form.Input
               name="title"
               type="text"
-              label="Logradouro"
-              placeholder="Logradouro"
+              label="Titulo"
+              placeholder="Titulo"
               onChange={formik.handleChange}
               value={formik.values.title}
               error={formik.errors.title}
@@ -128,7 +134,8 @@ export default function AddressForm(props){
 
               <div className="actions">
                   <Button className="submit" type="submit" loading={loading} >
-                      Criar endereço
+                      
+                      {newAddress ? "Criar endereço" : "Atualizar endereço"}
                   </Button>
               </div>
         </Form>
@@ -138,15 +145,15 @@ export default function AddressForm(props){
 }
 
 
-function initialValues(){
+function initialValues(address){
     return {
-        title: "",
-        name: "",
-        address: "",
-        cep: "",
-        cidade: "",
-        estado: "",
-        complemento: "",
+        title: address?.title || "",
+        name: address?.name || "",
+        address: address?.address || "",
+        cep: address?.cep || "",
+        cidade: address?.cidade || "",
+        estado: address?.estado || "",
+        complemento:address?.complemento || "",
     }
 }
 

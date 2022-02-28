@@ -61,7 +61,7 @@ function Address(props){
             <p>{address.complemento}</p>
 
            <div className="actions">
-               <Button primary onClick={() => openModal(`Editar: ${address.title}`)}>Editar</Button>
+               <Button primary onClick={() => openModal(`Editar: ${address.title}`, address)}>Editar</Button>
                <Button onClick={deleteAddress} loading={loadingDelete}>Excluir</Button> 
            </div>
 
