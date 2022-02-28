@@ -31,3 +31,21 @@ export async function getAddressesApi(idUser, logout) {
       return null;
     }
   }
+
+
+  export async function deleteAddressApi(idAddress, logout){
+      try {
+          const url = `${BASE_PATH}/addresses/${idAddress}`;
+          const params = {
+              method: "DELETE",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+          };
+          const result = await authFetch(url, params, logout);
+          if(result.statusCode === 500) throw "Error do servidor";
+      } catch (error) {
+          console.log(error);
+          return false;
+      }
+  }
