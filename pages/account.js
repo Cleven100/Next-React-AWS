@@ -10,6 +10,8 @@ import ChangePasswordForm from '../components/Account/ChangePasswordForm';
 import ModalBasico from '../components/Modal/ModalBasico/ModalBasico';
 import AddressForm from "../components/Account/AddressForm";
 import ListAddress from '../components/Account/ListAddress/ListAddress';
+import { BASE_PATH } from '../utils/constants';
+import { authFetch } from '../utils/fetch';
 
 export default function Account(){
       const [user, setUser] = useState(undefined);
@@ -105,3 +107,4 @@ function Addresses(){
         
        
 }
+
