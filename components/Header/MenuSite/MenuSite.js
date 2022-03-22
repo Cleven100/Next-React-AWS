@@ -35,11 +35,14 @@ export default function MenuSite() {
   return (
     <div className="fundo">
       <Grid>
-        <Grid.Column className="menu__left" width={7}>
+        <Grid.Column className="menu__left" width={9}>
           <TopBar />
+          
+             
+           
           {/* <MenuPlatforms /> */}
         </Grid.Column>
-        <Grid.Column className="menu__right" width={7}>
+        <Grid.Column className="menu__right" width={5}>
           {user !== undefined && (
             <MenuOptions
               onShowModal={onShowModal}
@@ -62,7 +65,7 @@ export default function MenuSite() {
   );
 }
 
-function MenuPlatforms() {
+export function MenuPlatforms() {
   return (
     <Menu>
       <Link href="/Nootbooks">

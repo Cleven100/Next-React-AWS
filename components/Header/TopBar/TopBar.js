@@ -9,6 +9,7 @@ export default function TopBar (){
                 <Grid className="top-bar">
                     
                     <Grid.Column width={14} className="top-bar__right">
+                        <Logo/>
                         <Search/>
                     </Grid.Column>
                 </Grid>
@@ -27,8 +28,8 @@ export default function TopBar (){
  function Logo(){
      return(     
          <Link href="/">
-             <a>
-                 <Image src="/logo.png" alt="Ecommerce"/>
+             <a className="Ecommerce">
+                 <p>Ecommerce-bag</p>
              </a>
          </Link>     
      )

@@ -1,9 +1,10 @@
 import LayoutBasico from "../layouts/LayoutBasico"
+import { MenuPlatforms } from "../components/Header/MenuSite/MenuSite"
 
 export default function Home() {
   return (
     <LayoutBasico className="home">
-      <h1>Home</h1>
+      <MenuPlatforms />
     </LayoutBasico>
   )
 }
