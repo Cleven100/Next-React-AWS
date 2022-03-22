@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Menu, Grid, Icon, Label } from "semantic-ui-react";
 import Link from "next/link";
 import ModalBasico from "../../Modal/ModalBasico/ModalBasico";
+import { map } from "lodash";
 import Auth from "../../Auth";
 import TopBar from "../TopBar";
 import useAuth from "../../../hooks/useAuth";
@@ -38,8 +39,6 @@ export default function MenuSite() {
       <Grid>
         <Grid.Column className="menu__left" width={8}>
           <TopBar />
-
-          {/* <MenuPlatforms /> */}
         </Grid.Column>
         <Grid.Column className="menu__right" width={6}>
           {user !== undefined && (
@@ -64,32 +63,19 @@ export default function MenuSite() {
   );
 }
 
-export function MenuPlatforms() {
-  return (
-    <>
-      <Menu>
-        
-            <Link href="/Nootbooks">
-              <Menu.Item as="a">Nootbooks</Menu.Item>
-            </Link>
+export function MenuPlatforms(props) {
+  const { platforms } = props;
 
-            <Link href="/Desktops">
-              <Menu.Item as="a">Desktops</Menu.Item>
-            </Link>
-
-            <Link href="/Celulares">
-              <Menu.Item as="a">Celulares</Menu.Item>
-            </Link>
-
-            <Link href="/Perifericos">
-              <Menu.Item as="a">Periféricos</Menu.Item>
-            </Link>
-         
-            
-         
-      </Menu>
-    </>
-  );
+  return <Menu>
+    {map(platforms, (platform) => (
+      <Link href={`/produtos/${platform.url}`} key={platform._id}>
+        <Menu.Item as="a" name={platform.url}>
+          {platform.title}
+        </Menu.Item>
+      </Link>
+    ))}
+    
+    </Menu>;
 }
 
 function MenuOptions(props) {
