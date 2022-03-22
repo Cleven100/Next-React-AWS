@@ -10,7 +10,7 @@ export default function TopBar (){
                     
                     <Grid.Column width={14} className="top-bar__right">
                         <Logo/>
-                        <Search/>
+                        
                     </Grid.Column>
                 </Grid>
             
@@ -29,14 +29,15 @@ export default function TopBar (){
      return(     
          <Link href="/">
              <a className="Ecommerce">
-                 <p>Ecommerce-bag</p>
+                 <p>BigCart</p>
              </a>
          </Link>     
      )
  }
  
- function Search(){
+ export function Search(){
      return(
-         <Input  id="search-compras" icon={{ name: "search"}} />
+         <div className="top-bar__right">
+         <Input  id="search-compras" icon={{ name: "search"}} /></div>
      )
  }

@@ -7,6 +7,7 @@ import TopBar from "../TopBar";
 import useAuth from "../../../hooks/useAuth";
 import { getMeApi } from "../../../api/user";
 import { getPlatFormsApi } from "../../../api/platform";
+import { Search } from "../TopBar/TopBar";
 
 export default function MenuSite() {
   const [platforms, setPlatforms] = useState([]);
@@ -23,11 +24,11 @@ export default function MenuSite() {
   }, [auth]);
 
   useEffect(() => {
-   (async () => {
-       const response = await getPlatFormsApi();
-       setPlatforms(response || []);
-   })()
-  }, [])
+    (async () => {
+      const response = await getPlatFormsApi();
+      setPlatforms(response || []);
+    })();
+  }, []);
 
   const onShowModal = () => setShowModal(true);
   const onCloseModal = () => setShowModal(false);
@@ -35,14 +36,12 @@ export default function MenuSite() {
   return (
     <div className="fundo">
       <Grid>
-        <Grid.Column className="menu__left" width={9}>
+        <Grid.Column className="menu__left" width={8}>
           <TopBar />
-          
-             
-           
+
           {/* <MenuPlatforms /> */}
         </Grid.Column>
-        <Grid.Column className="menu__right" width={5}>
+        <Grid.Column className="menu__right" width={6}>
           {user !== undefined && (
             <MenuOptions
               onShowModal={onShowModal}
@@ -67,23 +66,29 @@ export default function MenuSite() {
 
 export function MenuPlatforms() {
   return (
-    <Menu>
-      <Link href="/Nootbooks">
-        <Menu.Item as="a">Nootbooks</Menu.Item>
-      </Link>
+    <>
+      <Menu>
+        
+            <Link href="/Nootbooks">
+              <Menu.Item as="a">Nootbooks</Menu.Item>
+            </Link>
 
-      <Link href="/Desktops">
-        <Menu.Item as="a">Desktops</Menu.Item>
-      </Link>
+            <Link href="/Desktops">
+              <Menu.Item as="a">Desktops</Menu.Item>
+            </Link>
 
-      <Link href="/Celulares">
-        <Menu.Item as="a">Celulares</Menu.Item>
-      </Link>
+            <Link href="/Celulares">
+              <Menu.Item as="a">Celulares</Menu.Item>
+            </Link>
 
-      <Link href="/Perifericos">
-        <Menu.Item as="a">Periféricos</Menu.Item>
-      </Link>
-    </Menu>
+            <Link href="/Perifericos">
+              <Menu.Item as="a">Periféricos</Menu.Item>
+            </Link>
+         
+            
+         
+      </Menu>
+    </>
   );
 }
 

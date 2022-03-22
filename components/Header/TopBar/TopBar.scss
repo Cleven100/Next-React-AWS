@@ -38,35 +38,35 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
        
 
              ui.icon.input>input{
-               padding-right: 5px !important;
+                padding-right: 5px !important;
                }
 
        .ui.input {
-           align-items: center;
-           margin-right: 70px;
+        align-items: center;
+        margin-right: 70px;
            
 
            input {
-               background-color: transparent !important;
-               border: 0;
-               border-bottom: 2px solid $primary !important;
-               border-radius: 0;
-               color: #FFF !important;
-               font-size: 20px;
-               padding: 5px 0 !important;
-               width: 220px;
-               transition:  width 0.7s;
-               
+            background-color: transparent !important;
+            border: 0;
+            border-bottom: 2px solid black !important;
+            border-radius: 0;
+            color: black !important;
+            font-size: 20px;
+            padding: 5px 0 !important;
+            width: 220px;
+            transition:  width 0.7s;
+            
 
-               &:focus {
-                   width: 330px;
-               }
+            &:focus {
+                width: 330px;
+            }
 
              
            }
 
              i {
-                   color: $primary;
+                   color: black;
                    opacity: 1 !important;
                    font-size: 20px;
                    right: -45px !important;
@@ -82,4 +82,17 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
     font-size: 30px !important;
     margin: 0 400px 0 0;
     padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.produtos {
+ 
+    display: flex;
+    align-items: center;
+    margin: 0 30vh 0 0;
+    
 }
