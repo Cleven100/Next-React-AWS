@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;500;800&family=Roboto:ital,wght@0,700;1,400&display=swap');
 
-.top-bar{
+.top-bar {
     
     background: rgb(218, 219, 219);
 background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.9444152661064426) 4%);
@@ -31,7 +31,7 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
     }
 
  
-   &__right{
+    &__right{
        display: flex !important;
        align-items: center;
        justify-content: flex-end;
@@ -46,27 +46,27 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
         margin-right: 70px;
            
 
-           input {
+        input {
             background-color: transparent !important;
             border: 0;
-            border-bottom: 2px solid black !important;
+            border-bottom: 2px solid white !important;
             border-radius: 0;
-            color: black !important;
+            color: white !important;
             font-size: 20px;
             padding: 5px 0 !important;
-            width: 220px;
+            width: 150px;
             transition:  width 0.7s;
             
 
             &:focus {
-                width: 330px;
+                width: 250px;
             }
 
              
            }
 
-             i {
-                   color: black;
+           i {
+                   color: white;
                    opacity: 1 !important;
                    font-size: 20px;
                    right: -45px !important;
@@ -80,7 +80,7 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
 .Ecommerce {
     font-family: 'Bebas Neue', cursive !important; 
     font-size: 30px !important;
-    margin: 0 400px 0 0;
+    margin: 0 230px 0 0;
     padding: 0;
 }
 
@@ -95,4 +95,45 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
     align-items: center;
     margin: 0 30vh 0 0;
     
+}
+
+
+
+
+
+@media (max-width: 1200px)
+{
+  
+#search-compras {
+    width: 120px;
+}
+
+.Ecommerce {
+    margin: 0 100px 0 0;
+}
+
+    
+}
+
+@media (max-width: 600px)
+{
+  
+.top-bar {
+    &__right {
+       
+        i {
+            display: none !important;
+        }
+    }
+    
+}
+
+#search-compras {
+    display: none;
+   
+ 
+}
+.Ecommerce {
+    margin: 0 25px 0 0;
+}
 }

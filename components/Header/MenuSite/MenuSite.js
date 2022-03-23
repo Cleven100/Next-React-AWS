@@ -37,9 +37,12 @@ export default function MenuSite() {
   return (
     <div className="fundo">
       <Grid>
-        <Grid.Column className="menu__left" width={8}>
+        <Grid.Column className="menu__left" width={6}>
           <TopBar />
         </Grid.Column>
+         <Grid.Column width={2} className="menu__right">
+           <Search />
+         </Grid.Column>
         <Grid.Column className="menu__right" width={6}>
           {user !== undefined && (
             <MenuOptions
@@ -49,6 +52,7 @@ export default function MenuSite() {
             />
           )}
         </Grid.Column>
+       
       </Grid>
 
       <ModalBasico

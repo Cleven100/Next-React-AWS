@@ -20,7 +20,7 @@ export default function Home() {
     <LayoutBasico className="home">
       
       <MenuPlatforms platforms={platforms}/>
-      <Search />
+      
 
     </LayoutBasico>
   )
