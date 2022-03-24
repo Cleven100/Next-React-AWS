@@ -3,6 +3,7 @@ import LayoutBasico from "../../layouts/LayoutBasico";
 import { useRouter } from "next/router";
 import { MenuPlatforms } from "../../components/Header/MenuSite/MenuSite";
 import { getPlatFormsApi } from "../../api/platform";
+import { authFetch } from "../../utils/fetch";
 
 export default function Platform() {
     const [platforms, setPlatforms] = useState([]);
@@ -14,6 +15,8 @@ export default function Platform() {
         setPlatforms(response || []);
       })();
     }, []);
+
+
 
 
   return (
