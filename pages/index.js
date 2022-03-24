@@ -37,7 +37,9 @@ export default function Home() {
 
     <LayoutBasico className="home">
       
-      <MenuPlatforms platforms={platforms}/>
+      <MenuPlatforms className="menu" platforms={platforms}/>
+
+      <div className="content-produt">Teste</div>
       
 
     </LayoutBasico>
