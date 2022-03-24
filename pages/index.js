@@ -1,10 +1,10 @@
 import LayoutBasico from "../layouts/LayoutBasico"
 import { MenuPlatforms } from "../components/Header/MenuSite/MenuSite"
-import { Search } from "../components/Header/TopBar/TopBar"
+import { Loader } from "semantic-ui-react";
 import { getPlatFormsApi } from "../api/platform"
 import React, { useState, useEffect } from "react";
 import { getLastProdutosApi } from "../api/produto";
-import {size} from "lodash";
+import { size, map } from "lodash";
 
 
 export default function Home() {
@@ -39,6 +39,15 @@ export default function Home() {
       
       <MenuPlatforms className="menu" platforms={platforms}/>
 
+       {!produtos && <Loader active>Carregando Produtos</Loader>}
+       {produtos && size(produtos) === 0 && (
+         <div>
+           <h3>Não há produtos cadastrados</h3>
+         </div>
+       )}
+       {size(produtos)>0 && (
+         <h3>Lista de Produtos</h3>
+       )}
       <div className="content-produt">Teste</div>
       
 
