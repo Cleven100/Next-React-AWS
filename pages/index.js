@@ -12,7 +12,7 @@ export default function Home() {
 
   const [platforms, setPlatforms] = useState([]);
   const [produtos, setProdutos] = useState(null);
-  console.log(produtos);
+  
 
    useEffect(() => {
      (async ()  =>{

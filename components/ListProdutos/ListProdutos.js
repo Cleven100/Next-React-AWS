@@ -2,9 +2,16 @@ import React from 'react'
 import { Image, Grid } from "semantic-ui-react";
 import Link from "next/link"
 import { map } from "lodash";
+import useWindowSize from "../../hooks/useWindowSize";
+
 
 export default function ListProdutos(props) {
     const {produtos} = props;
+    const {width} = useWindowSize();
+    console.log(data);
+
+
+
   return (
     <div className='list-produtos'>
       <Grid>
