@@ -38,7 +38,7 @@ export default function Home() {
 
     <LayoutBasico className="home">
       
-      <MenuPlatforms className="menu" platforms={platforms}/>
+      <MenuPlatforms className="menu__pro" platforms={platforms}/>
 
        {!produtos && <Loader active>Carregando Produtos</Loader>}
        {produtos && size(produtos) === 0 && (
@@ -49,6 +49,7 @@ export default function Home() {
        {size(produtos)>0 && (
          <ListProdutos produtos={produtos} />
        )}
+       
       
       
 

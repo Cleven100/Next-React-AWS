@@ -70,7 +70,7 @@ export default function MenuSite() {
 export function MenuPlatforms(props) {
   const { platforms } = props;
 
-  return <Menu>
+  return <Menu className="menu__pro">
     {map(platforms, (platform) => (
       <Link href={`/produtos/${platform.url}`} key={platform._id}>
         <Menu.Item as="a" name={platform.url}>
@@ -79,7 +79,7 @@ export function MenuPlatforms(props) {
       </Link>
     ))}
     
-    </Menu>;
+    </Menu> 
 }
 
 function MenuOptions(props) {
