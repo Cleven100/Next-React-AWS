@@ -18,7 +18,7 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,1) 0%);
     margin: 10px;
     
   }
-
+   
   &__left,
   &__right {
     
@@ -94,7 +94,9 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,1) 0%);
  
 }
 
-
+.menu__mobile {
+  display: none;
+}
 
 
 ////////////////////////////////////////////
@@ -106,9 +108,19 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,1) 0%);
    display: none !important;
    
   }
- .menu__right{
-   width: 100px;
+  .menu__right{
+    width: 100px;
+  }
+
+ .menu__pro {
+    
+  position: relative;
+   z-index: 2;
+   display: flex;
+   
+  
  }
+ 
   
 }
 @media (max-width: 1000px)
@@ -144,20 +156,28 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,1) 0%);
    
   }
   
-} 
+}
 
-@media (max-width: 1180px)
+
+@media (max-width: 620px)
 {
   .menu__pro {
     
-   position: relative;
-    z-index: 2;
-    display: flex;
+   display: none !important;
     
    
   }
+
+  .menu__mobile {
+    display: block;
+    border: none;
+    padding: 20px;
+  }
   
-} 
+}
+
+
+
 
 
 

@@ -7,3 +7,39 @@
 .menu__pro {
     position: fixed;
 }
+
+.menu__mobile {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+}
+
+
+
+@media (max-width: 1200px) {
+    .menu__selected {
+        display: none;
+    }
+    }
+
+  
+
+    
+    @media (max-width: 630px) {
+        .menu__selected {
+            display: block;
+            
+            margin: 0;
+            padding: 30px;
+            background-color: white;
+            border-radius: 5%;
+            border: solid 1px $primary;
+            cursor: pointer;
+             
+        }
+
+        
+
+
+}
+        

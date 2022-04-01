@@ -36,8 +36,15 @@ export default function TopBar (){
  }
  
  export function Search(){
-     return(
-         <div className="top-bar__right">
-         <Input  id="search-compras" icon={{ name: "search"}} /></div>
-     )
- }
+    return(
+        <div className="top-bar__right">
+        <Input  id="search-compras" icon={{ name: "search"}} /></div>
+    )
+}
+
+export function SearchMobile(){
+    return(
+        <div className="top-bar__mobile">
+        <Input  id="search-compras" icon={{ name: "search"}} /></div>
+    )
+}

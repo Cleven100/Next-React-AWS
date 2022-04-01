@@ -9,12 +9,11 @@ import {breakpointUpSm, breakpointUpMd, breakpointUpLg, breakpointUpXL} from "..
 export default function ListProdutos(props) {
     const {produtos} = props;
     const {width} = useWindowSize();
-   
+    console.log(width);
 
     const getColumnsRender = () => {
       switch (true) {
-        case width > breakpointUpXL:
-             return 6;
+      
         case width > breakpointUpLg:
           return 5;
             case width > breakpointUpMd:

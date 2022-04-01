@@ -103,6 +103,23 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
 
 @media (max-width: 1200px)
 {
+    .top-bar {
+        &__right {
+           
+            i {
+                display: block !important;
+                color: white !important;
+            }
+        }
+        &__mobile {
+            display: none;
+            
+         
+        }
+       
+        
+    }
+
   
 #search-compras {
     width: 120px;
@@ -115,7 +132,7 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
     
 }
 
-@media (max-width: 600px)
+@media (max-width: 620px)
 {
   
 .top-bar {
@@ -123,8 +140,23 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
        
         i {
             display: none !important;
+            color: white !important;
         }
     }
+    &__mobile {
+        display: block !important;
+        
+
+       i {
+        color: black;
+        opacity: 1 !important;
+        font-size: 30px !important;
+        cursor: pointer;
+        
+        
+    }
+    }
+   
     
 }
 

@@ -8,6 +8,8 @@ import { size } from "lodash";
 import ListProdutos from "../components/ListProdutos";
 import useWindowSize from "../hooks/useWindowSize";
 import {breakpointUpSm, breakpointUpMd, breakpointUpLg, breakpointUpXL} from "../utils/breakpoint";
+import { SearchMobile } from "../components/Header/TopBar/TopBar";
+
 
 
 export default function Home() {
@@ -56,11 +58,26 @@ export default function Home() {
     })();
   }, []);
 
+  const testeclick = () => {
+    console.log("teste");
+  }
+
   return (
    
       
     <LayoutBasico className="home">
+      
       <MenuPlatforms className="menu__pro" platforms={platforms}/>
+      <div className="menu__mobile">
+        <button className="menu__selected" onClick={testeclick}>
+          Selecione
+          </button>
+        <div className="search_visible">
+          <SearchMobile />
+        </div>
+        
+
+      </div>
       
       
 
