@@ -3,19 +3,37 @@ import { Image, Grid } from "semantic-ui-react";
 import Link from "next/link"
 import { map } from "lodash";
 import useWindowSize from "../../hooks/useWindowSize";
+import {breakpointUpSm, breakpointUpMd, breakpointUpLg, breakpointUpXL} from "../../utils/breakpoint";
 
 
 export default function ListProdutos(props) {
     const {produtos} = props;
     const {width} = useWindowSize();
-    console.log(data);
+   
 
+    const getColumnsRender = () => {
+      switch (true) {
+        case width > breakpointUpXL:
+             return 6;
+        case width > breakpointUpLg:
+          return 5;
+            case width > breakpointUpMd:
+              return 4;
+           case width >  breakpointUpSm:
+             return 3;
+             default:
+                return 1; 
+         
+      }
+    }
+
+    console.log(getColumnsRender())
 
 
   return (
     <div className='list-produtos'>
       <Grid>
-          <Grid.Row columns={5}>
+      <Grid.Row columns={getColumnsRender()}>
              {map(produtos, (produto) => (
         <Produto produto={produto}/>
       ))}

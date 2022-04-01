@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { MenuPlatforms } from "../../components/Header/MenuSite/MenuSite";
 import { getPlatFormsApi } from "../../api/platform";
 import { authFetch } from "../../utils/fetch";
+import { Grid, GridRow } from "semantic-ui-react";
 
 export default function Platform() {
     const [platforms, setPlatforms] = useState([]);
@@ -22,7 +23,9 @@ export default function Platform() {
 
   return (
     <LayoutBasico className="platform">
-      <MenuPlatforms platforms={platforms}/>
+      
+          <MenuPlatforms platforms={platforms}/> 
+      
       
       <h1>estamos em produtos: {query.platform}</h1>
     </LayoutBasico>
