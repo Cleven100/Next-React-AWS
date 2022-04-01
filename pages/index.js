@@ -49,7 +49,7 @@ export default function Home() {
        {size(produtos)>0 && (
          <ListProdutos produtos={produtos} />
        )}
-      <div className="content-produt">Teste</div>
+      
       
 
     </LayoutBasico>

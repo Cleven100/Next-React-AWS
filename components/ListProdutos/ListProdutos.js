@@ -12,7 +12,7 @@ export default function ListProdutos(props) {
              {map(produtos, (produto) => (
         <Produto produto={produto}/>
       ))}
-        
+         
           </Grid.Row>
       </Grid>
      
@@ -25,14 +25,39 @@ export default function ListProdutos(props) {
 function Produto(props) {
   const { produto } = props;
   return (
-   <Grid.Column className="list-produto__produto">
+   
+   <Grid.Column className="product">
        <Link href={`/${produto.url}`}>
          <a>
-            <div className="list-produtos__produto-poster">
+           <h2>{produto.title}</h2>
+         </a>
+          </Link>  
+            <div className="product__info">
+                 {produto.discount ? (
+                   <span className="discount">-{produto.discount}%</span>
+                 ): (
+                   <span />
+                 )}
+                 <span className="product__price">${produto.price}</span>
+                 <div className="product__rating">
+                ⭐⭐⭐⭐⭐
+                </div>
+                <button className='Button'>Add to cart</button>
+              </div>
+              
+              <Link href={`/${produto.url}`}>
+         <a>
+           <div className="list-produtos__produto-poster">
               <Image src={produto.poster.url} alt={produto.title} />
+             
             </div>
          </a>
-       </Link>
+          </Link>  
+
+            
+            
+         
+      
    </Grid.Column>
   )
 }
