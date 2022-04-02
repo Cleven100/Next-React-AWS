@@ -98,7 +98,16 @@ background: linear-gradient(360deg, rgba(0,185,255,0) 0%, rgba(2,3,4,0.944415266
 }
 
 
+@media (max-width: 1600px) {
+    .top-bar {
+        &__mobile {
+            display: none;
+            
+         
+        }
+    }
 
+}
 
 
 @media (max-width: 1200px)

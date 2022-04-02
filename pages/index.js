@@ -12,6 +12,9 @@ import { SearchMobile } from "../components/Header/TopBar/TopBar";
 
 
 
+
+
+
 export default function Home() {
 
   const [platforms, setPlatforms] = useState([]);
@@ -97,3 +100,6 @@ export default function Home() {
     </LayoutBasico>
   )
 }
+
+
+
