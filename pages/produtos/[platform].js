@@ -6,9 +6,17 @@ import { getPlatFormsApi } from "../../api/platform";
 import { authFetch } from "../../utils/fetch";
 import { Grid, GridRow } from "semantic-ui-react";
 import { SearchMobile } from "../../components/Header/TopBar/TopBar";
+import { getProdutosPlatformApi } from "../../api/produto";
+import { initial, size } from "lodash";
+import { Loader } from "semantic-ui-react";
+import ListProdutos from "../../components/ListProdutos/ListProdutos";
 
+const limitPerPage = 10;
 
 export default function Platform() {
+
+   
+    const [produtos, setProdutos] = useState(null);
     const [platforms, setPlatforms] = useState([]);
     const {query} = useRouter();
 
@@ -18,6 +26,19 @@ export default function Platform() {
         setPlatforms(response || []);
       })();
     }, []);
+
+
+    useEffect(() => {
+      (async () => {
+        const response = await getProdutosPlatformApi(
+          query.platform,
+           limitPerPage, 0);     
+        setProdutos(response);
+      })();
+    }, [query]);
+
+
+    
 
   
     
@@ -39,7 +60,15 @@ export default function Platform() {
       </div>
       
       
-      <h1>estamos em produtos: {query.platform}</h1>
+      {!produtos && <Loader active>Carregando produtos</Loader>}
+      {produtos && size(produtos) === 0 && (
+        <div>
+          <h3>Não tem produtos cadastrados</h3>
+        </div>
+      )}
+      {size(produtos) > 0 && (
+        <ListProdutos produtos={produtos}/>
+      )}
     </LayoutBasico>
   );
 }
