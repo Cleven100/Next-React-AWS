@@ -7,9 +7,13 @@ import queryString from "query-string"
 export default function Pagination(props) {
     const {totalProdutos, page, limitPerPage } = props;
     const totalPages = Math.ceil(totalProdutos / limitPerPage);
-
+    const router = useRouter();
+    const urlParse = queryString.parseUrl(router.asPath);
+    
    const goToPage = (newPage) => {
-       console.log(newPage);
+       urlParse.query.page = newPage;
+       const url = queryString.stringifyUrl(urlParse);
+       router.push(url);
    }
 
   return (
@@ -19,7 +23,7 @@ export default function Pagination(props) {
           totalPages={totalPages}
           firstItem={null}
           lastItem={null}
-          onPageChange={goToPage}
+          onPageChange={(_, data) => goToPage(data.activePage)}
           boundaryRange={0}
           siblingRange={1}
           ellipsisItem={null}

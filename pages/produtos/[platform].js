@@ -92,7 +92,7 @@ export default function Platform() {
       {totalProdutos ? (
       <Pagination
        totalProdutos={totalProdutos}
-        page={query.page ? parent(query.page): 1}
+        page={query.page ? parseInt(query.page): 1}
         limitPerPage={limitPerPage}
       /> 
       ) : null}
