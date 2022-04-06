@@ -32,3 +32,16 @@ export async function getProdutosPlatformApi(platform, limit, start) {
 
 
 }
+
+
+export async function getTotalProdutosPlatformApi(platform) {
+  try {
+     const url = `${BASE_PATH}/produtos/count?platform.url=${platform}`;
+     const responde = await fetch(url);
+     const result = await response.json();
+     return result;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}

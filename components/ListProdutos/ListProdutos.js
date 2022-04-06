@@ -9,7 +9,7 @@ import {breakpointUpSm, breakpointUpMd, breakpointUpLg, breakpointUpXL} from "..
 export default function ListProdutos(props) {
     const {produtos} = props;
     const {width} = useWindowSize();
-    console.log(width);
+    
 
     const getColumnsRender = () => {
       switch (true) {
@@ -26,7 +26,7 @@ export default function ListProdutos(props) {
       }
     }
 
-    console.log(getColumnsRender())
+    
 
 
   return (

@@ -6,7 +6,7 @@ import { getPlatFormsApi } from "../../api/platform";
 import { authFetch } from "../../utils/fetch";
 import { Grid, GridRow } from "semantic-ui-react";
 import { SearchMobile } from "../../components/Header/TopBar/TopBar";
-import { getProdutosPlatformApi } from "../../api/produto";
+import { getProdutosPlatformApi , getTotalProdutosPlatformApi} from "../../api/produto";
 import { initial, size } from "lodash";
 import { Loader } from "semantic-ui-react";
 import ListProdutos from "../../components/ListProdutos/ListProdutos";
@@ -19,7 +19,18 @@ export default function Platform() {
     const [produtos, setProdutos] = useState(null);
     const [platforms, setPlatforms] = useState([]);
     const {query} = useRouter();
+    const [totalProdutos, setTotalProdutos] = useState(null);
 
+   
+
+    const getStartItem = () => {
+      const currentPages = parseInt(query.page);
+      if(!query.page || currentPages === 1) return 0;
+      else return currentPages * limitPerPage - limitPerPage;
+    }
+
+     
+  
     useEffect(() => {
       (async () => {
         const response = await getPlatFormsApi();
@@ -38,7 +49,14 @@ export default function Platform() {
     }, [query]);
 
 
-    
+   useEffect(() => {
+     (async () => {
+        const response = await getProdutosPlatformApi(query.platform);
+        setTotalProdutos(response);
+     })()
+      
+     
+   }, [query])    
 
   
     
