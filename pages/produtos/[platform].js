@@ -10,6 +10,7 @@ import { getProdutosPlatformApi , getTotalProdutosPlatformApi} from "../../api/p
 import { initial, size } from "lodash";
 import { Loader } from "semantic-ui-react";
 import ListProdutos from "../../components/ListProdutos/ListProdutos";
+import Pagination from "../../components/Pagination";
 
 const limitPerPage = 10;
 
@@ -87,6 +88,8 @@ export default function Platform() {
       {size(produtos) > 0 && (
         <ListProdutos produtos={produtos}/>
       )}
+
+      {totalProdutos ? <Pagination totalProdutos={totalProdutos} page={query.page ? parent(query.page): 1}/> : null}
     </LayoutBasico>
   );
 }
