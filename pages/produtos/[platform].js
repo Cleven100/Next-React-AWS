@@ -12,7 +12,7 @@ import { Loader } from "semantic-ui-react";
 import ListProdutos from "../../components/ListProdutos/ListProdutos";
 import Pagination from "../../components/Pagination";
 
-const limitPerPage = 10;
+const limitPerPage = 4;
 
 export default function Platform() {
 
@@ -42,19 +42,26 @@ export default function Platform() {
 
     useEffect(() => {
       (async () => {
-        const response = await getProdutosPlatformApi(
-          query.platform,
-           limitPerPage, getStartItem());     
+         if (query.platform){
+
+           const response = await getProdutosPlatformApi(
+           query.platform,
+           limitPerPage, 
+           getStartItem()
+           );     
         setProdutos(response);
+      }
+        
       })();
     }, [query]);
 
 
    useEffect(() => {
      (async () => {
-        const response = await getProdutosPlatformApi(query.platform);
+        const response = await getTotalProdutosPlatformApi(query.platform);
+        console.log(response);
         setTotalProdutos(response);
-     })()
+     })();
       
      
    }, [query])    
