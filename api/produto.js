@@ -1,3 +1,4 @@
+import { result } from "lodash";
 import { BASE_PATH } from "../utils/constants";
 
 export async function getLastProdutosApi(limit) {
@@ -44,4 +45,24 @@ export async function getTotalProdutosPlatformApi(platform) {
     console.log(error);
     return null;
   }
+}
+
+
+export async function getProdutoByUrlApi(path) {
+
+  try {
+    const url = `${BASE_PATH}/produtos?url=${path}`;
+    const response = await fetch(url);
+    const result = await response.json();
+    return result;
+   
+
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+
+
+
+
 }
