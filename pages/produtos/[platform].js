@@ -44,7 +44,7 @@ export default function Platform() {
       (async () => {
         const response = await getProdutosPlatformApi(
           query.platform,
-           limitPerPage, 0);     
+           limitPerPage, getStartItem());     
         setProdutos(response);
       })();
     }, [query]);
