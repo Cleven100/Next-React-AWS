@@ -89,7 +89,14 @@ export default function Platform() {
         <ListProdutos produtos={produtos}/>
       )}
 
-      {totalProdutos ? <Pagination totalProdutos={totalProdutos} page={query.page ? parent(query.page): 1}/> : null}
+      {totalProdutos ? (
+      <Pagination
+       totalProdutos={totalProdutos}
+        page={query.page ? parent(query.page): 1}
+        limitPerPage={limitPerPage}
+      /> 
+      ) : null}
+
     </LayoutBasico>
   );
 }
