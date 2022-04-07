@@ -33,8 +33,12 @@ function Info(props) {
         
              {title}
              <Icon name="heart outline" link/>
+
             
         </div>
+          <div className="header-produto__delivery">
+              Entrega entre 24/48 horas
+          </div>
          <div className="header-produto__summary"  dangerouslySetInnerHTML={{__html: summary}} />
          <div className="header-produto__buy">
                  
@@ -42,8 +46,12 @@ function Info(props) {
                      <p>Preço de venda: ${price} </p>
                      <div className="header-produto__buy-price-actions">
                          <p>-{discount}%</p>
+                         <p>{price - Math.floor(price*discount) / 100} $</p>
                      </div>
                  </div>
+                 <Button className="header-game__buy-btn">
+                     Comprar
+                 </Button>
          </div>
 
          </>

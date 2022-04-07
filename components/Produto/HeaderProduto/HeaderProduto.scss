@@ -27,6 +27,13 @@
             }
         }
     }
+    &__delivery {
+        text-align: center;
+        color: rgb(44, 44, 44);
+        font-weight: bold;
+        font-size: 18px;
+        padding: 10px 0;
+    }
 
     &__summary {
         background-color: $background-light;
