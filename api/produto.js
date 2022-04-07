@@ -40,7 +40,8 @@ export async function getTotalProdutosPlatformApi(platform) {
      const url = `${BASE_PATH}/produtos/count?platform.url=${platform}`;
      const response = await fetch(url);
      const result = await response.json();
-     return result[0];
+     return result;
+     
   } catch (error) {
     console.log(error);
     return null;

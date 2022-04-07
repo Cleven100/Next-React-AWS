@@ -14,10 +14,40 @@ export default function HeaderProduto(props) {
               <Image src={poster.url}  alt={title}/>
             </Grid.Column>
             <Grid.Column mobile={16} table={10} computer={11}>
-             <p>info</p>
+             <Info produto={produto}  link/>
             </Grid.Column> 
         </Grid>
     )
 
     
+}
+
+function Info(props) {
+  
+    const { produto } = props;
+    const { title, summary, price, discount } = produto;
+
+    return (
+        <>
+        <div className="header-produto__title">
+        
+             {title}
+             <Icon name="heart outline" link/>
+            
+        </div>
+         <div className="header-produto__summary"  dangerouslySetInnerHTML={{__html: summary}} />
+         <div className="header-produto__buy">
+                 
+                 <div className="header-produto__buy-price">
+                     <p>Preço de venda: ${price} </p>
+                     <div className="header-produto__buy-price-actions">
+                         <p>-{discount}%</p>
+                     </div>
+                 </div>
+         </div>
+
+         </>
+        
+    )
+
 }

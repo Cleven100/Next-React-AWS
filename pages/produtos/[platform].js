@@ -59,7 +59,7 @@ export default function Platform() {
    useEffect(() => {
      (async () => {
         const response = await getTotalProdutosPlatformApi(query.platform);
-        console.log(response);
+        
         setTotalProdutos(response);
      })();
       
@@ -96,7 +96,9 @@ export default function Platform() {
         <ListProdutos produtos={produtos}/>
       )}
 
-      {totalProdutos ? (
+      
+
+    {totalProdutos ? (
       <Pagination
        totalProdutos={totalProdutos}
         page={query.page ? parseInt(query.page): 1}
