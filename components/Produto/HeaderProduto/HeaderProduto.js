@@ -48,10 +48,11 @@ function Info(props) {
                          <p>-{discount}%</p>
                          <p>{price - Math.floor(price*discount) / 100} $</p>
                      </div>
+                    
                  </div>
-                 <Button className="header-game__buy-btn">
+                       <Button className="header-produto__buy-btn">
                      Comprar
-                 </Button>
+                    </Button>
          </div>
 
          </>
