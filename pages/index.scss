@@ -14,12 +14,18 @@
         justify-content: space-between;
 }
 
-
+@media (max-width: 1500px) {
+    .menu__selected {
+        display: none;
+    }
+  
+    }
 
 @media (max-width: 1200px) {
     .menu__selected {
         display: none;
     }
+   
     }
 
   

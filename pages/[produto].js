@@ -6,6 +6,7 @@ import HeaderProduto from '../components/Produto/HeaderProduto';
 import { MenuPlatforms } from '../components/Header/MenuSite/MenuSite';
 import { getPlatFormsApi } from '../api/platform';
 import { SearchMobile } from '../components/Header/TopBar/TopBar';
+import TabsProduto from '../components/Produto/TabsProduto/TabsProduto';
 
 export default function Produto() {
     const [produto, setProduto] = useState(null);
@@ -52,7 +53,7 @@ export default function Produto() {
         
         
         <HeaderProduto produto={produto}/>
-  
+        <TabsProduto produto={produto}/>
       </LayoutBasico>
          
 
