@@ -59,6 +59,20 @@
                display: flex;
                justify-content: space-between;
                align-items: baseline;
+
+               > p {
+                   margin: 0;
+                   font-weight: bold;
+
+                   &:first-of-type {
+                       font-size: 25px;
+                   }
+
+                   &:last-of-type {
+                       font-size: 40px;
+                       color: orangered;
+                   }
+               }
            }
         }
     }
